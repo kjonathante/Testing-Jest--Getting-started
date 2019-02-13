@@ -9,4 +9,17 @@ function stallPromise(stallTime = 3000) {
     }, stallTime);
   });
 }
-module.exports = { fetchData: stall, fetchDataPromise: stallPromise };
+
+function stallPromiseReject(stallTime = 2000) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("error");
+    }, stallTime);
+  });
+}
+
+module.exports = {
+  fetchData: stall,
+  fetchDataPromise: stallPromise,
+  fetchDataPromiseReject: stallPromiseReject
+};
