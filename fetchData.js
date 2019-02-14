@@ -2,7 +2,7 @@ function stall(cb, stallTime = 3000) {
   setTimeout(cb("peanut butter"), stallTime);
 }
 
-function stallPromise(stallTime = 3000) {
+function stallPromise(stallTime = 1000) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve("peanut butter");
@@ -10,7 +10,7 @@ function stallPromise(stallTime = 3000) {
   });
 }
 
-function stallPromiseReject(stallTime = 2000) {
+function stallPromiseReject(stallTime = 1000) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       reject("error");

@@ -1,6 +1,10 @@
-const { fetchDataPromiseReject } = require("./fetchData");
+const { fetchDataPromiseReject: fetchData } = require("./fetchData");
 
-test("the fetch fails with an error", () => {
+test("the fetch fails with an error using catch", () => {
   expect.assertions(1);
-  return fetchDataPromiseReject().catch(e => expect(e).toMatch("error"));
+  return fetchData().catch(e => expect(e).toMatch("error"));
+});
+
+test("the fetch fails with an error using rejects", () => {
+  return expect(fetchData()).rejects.toMatch("error");
 });
